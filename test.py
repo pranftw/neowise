@@ -1,7 +1,7 @@
-from neowise.CostFunction import Cost
+from neowise import ActivationFunction
 import numpy as np
 
-y = np.array([1, 1, 0, 0])
-A = np.array([0.65, 0.2, 0.6, 0.99])
-cost = Cost.binary_cross_entropy(y=y, A=A, m=4)
-print(cost)
+g = np.array([1, 2, 3, 4])
+relu = ActivationFunction.ActivationsForward.softmax
+f = relu(g)
+print(f)

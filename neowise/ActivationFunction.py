@@ -2,6 +2,7 @@ import numpy as np
 
 
 class ActivationsForward:
+
     def relu(self):
         return np.maximum(0, self)
 
