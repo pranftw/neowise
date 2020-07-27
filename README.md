@@ -1,3 +1,3 @@
 # neowise
 
-A Deep Learning Framework built with Python and Numpy
+A Deep Learning Framework built with Python and NumPy
