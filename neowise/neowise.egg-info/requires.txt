@@ -1,0 +1,5 @@
+numpy
+matplotlib
+hdfdict
+prettytable
+tqdm
