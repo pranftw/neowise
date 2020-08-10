@@ -1,0 +1,16 @@
+README.md
+setup.py
+neowise/__init__.py
+neowise/activations.py
+neowise/cost_function.py
+neowise/functional.py
+neowise/layers.py
+neowise/neural_net.py
+neowise/optimizers.py
+neowise/plots.py
+neowise/regularizers.py
+neowise.egg-info/PKG-INFO
+neowise.egg-info/SOURCES.txt
+neowise.egg-info/dependency_links.txt
+neowise.egg-info/requires.txt
+neowise.egg-info/top_level.txt
