@@ -7,6 +7,6 @@ setup(name="neowise",
       author_email="pranava.sri@gmail.com",
       url="https://github.com/pranavsastry/neowise",
       packages=find_packages(),
-      install_requires=['numpy', 'matplotlib', 'math', 'sklearn', 'pandas',
+      install_requires=['numpy', 'matplotlib', 'sklearn', 'pandas',
                         'seaborn', 'tensorflow', 'keras', 'hdfdict',
-                        'prettytable', 'tqdm', 'time'])
+                        'prettytable', 'tqdm'])
