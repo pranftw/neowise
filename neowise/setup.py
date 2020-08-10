@@ -9,4 +9,4 @@ setup(name="neowise",
       packages=find_packages(),
       install_requires=['numpy', 'matplotlib', 'math', 'sklearn', 'pandas',
                         'seaborn', 'tensorflow', 'keras', 'hdfdict',
-                        'prettytable', 'tqdm', 'time', 'sys'])
+                        'prettytable', 'tqdm', 'time'])
