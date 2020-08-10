@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name="neowise",
-      version='0.0.1',
+      version='0.0.2',
       description="A Deep Learning library built from scratch using Python and NumPy",
       author="Pranav Sastry",
       author_email="pranava.sri@gmail.com",
