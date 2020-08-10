@@ -1,0 +1,12 @@
+numpy
+matplotlib
+math
+sklearn
+pandas
+seaborn
+tensorflow
+keras
+hdfdict
+prettytable
+tqdm
+time
