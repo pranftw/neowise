@@ -114,7 +114,6 @@ class Model:
                 self.backward_prop(mini_batches["MB_Y" + str(vee)], prob_type, activations_dict, lamb, reg)
                 optim_dict[optim][0](alpha, self.layer_names, optim_dict[optim][1], optim_dict[optim][2],
                                      optim_dict[optim][3] + i)()
-                time.sleep(0.005)
             act_tr = self.forward_prop(X)
             cost_tr, _ = prob_type_dict[prob_type][0](y, act_tr["A" + str(len(self.layer_names))], self.layer_names,
                                                       lamb, reg)()

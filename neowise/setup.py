@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name="neowise-pranavsastry",
+setup(name="neowise",
       version='0.0.1',
       description="A Deep Learning library for built from scratch using Python and NumPy",
       author="Pranav Sastry",
