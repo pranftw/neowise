@@ -1,0 +1,6 @@
+setup.py
+neowise.egg-info/PKG-INFO
+neowise.egg-info/SOURCES.txt
+neowise.egg-info/dependency_links.txt
+neowise.egg-info/requires.txt
+neowise.egg-info/top_level.txt
