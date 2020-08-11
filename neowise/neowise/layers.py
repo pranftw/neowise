@@ -2,6 +2,24 @@ from neowise.activations import *
 
 
 class Dense:
+    """
+    Dense
+    Creates Fully connected Neural Network layer
+
+    Arguments:
+         num_inputs: Number of input units to the current layer (int)
+         num_outputs: Number of units in the current layer (int)
+         activation_fn: Activation function for the current layer (str)
+         dropout: Value between 0 and 1 (default=1) (float)
+         weights: Weights for the layer in dimensions (num_outputs,num_inputs) (nd-array)
+         bias: Bias of the layer in dimensions (num_outputs,1) (nd-array)
+         dZ: Gradient of Cost function w.r.t the outputs of the layer (nd-array)
+         dW: Gradient of Cost function w.r.t the weights of the layer (nd-array)
+         db: Gradient of Cost function w.r.t the bias of the layer (nd-array)
+         dA: Gradient of Cost function w.r.t the activations of the layer (nd-array)
+         grad_L1: Gradient of the weights w.r.t itself (nd-array)
+         grad_reg: Calculates the gradient of Regularization functions (nd-array)
+    """
     def __init__(self, num_inputs, num_outputs, activation_fn, dropout=1.0, weights=None, bias=None, dZ=None, dW=None,
                  db=None, dA=None, grad_L1=None, grad_reg=None):
         self.num_inputs = num_inputs

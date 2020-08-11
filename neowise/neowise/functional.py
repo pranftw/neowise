@@ -2,6 +2,15 @@ import numpy as np
 
 
 class Predict:
+    """
+    Predict
+    Used to calculate the predictions of the network based on the activation of the output layer
+    of the network for Binary Classification tasks
+
+    Arguments:
+        A: Activations of the output layer (nd-array)
+        threshold: Value between 0 and 1, above which the prediction is 1 and below which is 0 (default=0.5) (float)
+    """
     def __init__(self, A, threshold=0.5):
         self.A = A
         self.threshold = threshold
@@ -15,6 +24,14 @@ class Predict:
 
 
 class PredictMulti:
+    """
+    Predict Multi
+    Used to calculate the predictions of the network based on the activation of the output layer
+    of the network for Multi Class Classification tasks
+
+    Arguments:
+        A: Activations of the output layer of the network (nd-array)
+    """
     def __init__(self, A):
         self.A = A
 
@@ -31,6 +48,15 @@ class PredictMulti:
 
 
 class Evaluate:
+    """
+    Evaluate
+    Calculates the accuracy of the network, i.e gives the percentage of the ratio between the data that is correctly
+    classified to the total number of examples of data for Binary Classification tasks
+
+    Arguments:
+        y: Output labels of the train/test data (nd-array)
+        preds: Predictions of the network (nd-array)
+    """
     def __init__(self, y, preds):
         self.y, self.preds = y, preds
 
@@ -40,6 +66,15 @@ class Evaluate:
 
 
 class EvaluateMulti:
+    """
+    Evaluate Multi
+    Calculates the accuracy of the network, i.e gives the percentage of the ratio between the data that is correctly
+    classified to the total number of examples of data for Multi Class Classification tasks
+
+    Arguments:
+        y: Output labels of the train/test data (nd-array)
+        preds: Predictions of the network (nd-array)
+    """
     def __init__(self, y, preds):
         self.y, self.preds = y, preds
 
@@ -63,6 +98,14 @@ class EvaluateMulti:
 
 
 class PrecisionRecall:
+    """
+    Precision Recall
+    Calculates Precision, recall and F1 score of the network for Binary Classification tasks
+
+    Arguments:
+        A: Predictions of the network (nd-array)
+        y: Labelled outputs of train/test set (nd-array)
+    """
     def __init__(self, A, y):
         self.A, self.y = A, y
 
@@ -84,6 +127,15 @@ class PrecisionRecall:
 
 
 class PrecisionRecallMulti:
+    """
+    Precision Recall Multi
+    Calculates Precision, recall and F1 score of the network for each of the classes of
+    Multi Class Classification tasks
+
+    Arguments:
+        A: Predictions of the network (nd-array)
+        y: Labelled outputs of train/test set (nd-array)
+    """
     def __init__(self, A, y):
         self.A, self.y = A, y
 
@@ -119,6 +171,13 @@ class PrecisionRecallMulti:
 
 
 class GradL1Reg:
+    """
+    Grad L1 Reg
+    Calculates the derivative of the weights of the array to itself
+
+    Arguments:
+        layers_arr: List containing the objects of nw.layers classes
+    """
     def __init__(self, layers_arr):
         self.layers_arr = layers_arr
 
@@ -134,6 +193,15 @@ class GradL1Reg:
 
 
 class CreateMiniBatches:
+    """
+    Create Mini Batches
+    Creates mini batches for training with the specified mini-batch size
+
+    Arguments:
+        X: Training data (nd-array)
+        y: Training data outputs (nd-array)
+        mb_size: Number of training examples in each mini-batch (int)
+    """
     def __init__(self, X, y, mb_size):
         self.X, self.y, self.mb_size = X, y, mb_size
 

@@ -4,11 +4,33 @@ from neowise.regularizers import *
 
 
 class CostFunctionHelpers:
+    """
+    Cost Function Helpers
+    Used to initiate the instance variables of Cost Functions
+
+    Arguments:
+        y: Outputs of the train/test data (nd-array)
+        A: Activations of the output layer of the network (nd-array)
+        layers_arr: A Python list containing objects of nw.layers (list)
+        lamb: Regularization parameter "lambda" (float)
+        reg: Type of Regularization (str)
+    """
     def __init__(self, y, A, layers_arr, lamb, reg=None):
         self.y, self.A, self.layers_arr, self.lamb, self.reg = y, A, layers_arr, lamb, reg
 
 
 class BinaryCrossEntropy(CostFunctionHelpers):
+    """
+    Binary Cross Entropy
+    Used to calculate the cost for Binary Classification tasks
+
+    Arguments:
+        y: Outputs of the train/test data (nd-array)
+        A: Activations of the output layer of the network (nd-array)
+        layers_arr: A Python list containing objects of nw.layers (list)
+        lamb: Regularization parameter "lambda" (float)
+        reg: Type of Regularization (str)
+    """
     def __init__(self, y, A, layers_arr, lamb, reg=None):
         CostFunctionHelpers.__init__(self, y, A, layers_arr, lamb, reg=None)
 
@@ -32,6 +54,17 @@ class BinaryCrossEntropy(CostFunctionHelpers):
 
 
 class CrossEntropy(CostFunctionHelpers):
+    """
+    Cross Entropy
+    Used to calculate the cost for Multi Class Classification tasks
+
+    Arguments:
+        y: Outputs of the train/test data (nd-array)
+        A: Activations of the output layer of the network (nd-array)
+        layers_arr: A Python list containing objects of nw.layers (list)
+        lamb: Regularization parameter "lambda" (float)
+        reg: Type of Regularization (str)
+    """
     def __init__(self, y, A, layers_arr, lamb, reg=None):
         CostFunctionHelpers.__init__(self, y, A, layers_arr, lamb, reg=None)
 

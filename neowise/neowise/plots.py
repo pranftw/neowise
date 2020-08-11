@@ -3,18 +3,54 @@ import matplotlib.pyplot as plt
 
 
 class StaticPlotHelpers:
+    """
+    Static Plot Helpers
+    Used to initiate the instance variables of Static Plots
+
+    Arguments:
+        costs_tr: Array of costs of training data through the entire training duration of the network
+        costs_cv: Array of costs of cross validation data through the entire duration of the network
+        accu_tr_arr: Array containing the accuracy of the training data of the network through the entire training duration
+        accu_cv_arr: Array containing the accuracy of the cross  validation data of the network through the entire training duration
+    """
     def __init__(self, costs_tr, costs_cv, accu_tr_arr, accu_cv_arr):
         self.costs_tr, self.costs_cv = costs_tr, costs_cv
         self.accu_tr_arr, self.accu_cv_arr = accu_tr_arr, accu_cv_arr
 
 
 class AnimatePlotHelpers:
+    """
+    Animate Plot Helpers
+    Used to initiate the instance variables of Animated Plots
+
+    Arguments:
+        x_ax: X axis data for plotting
+        y_ax: Y axis data for plotting
+        X_lab: Label of the X axis of the plot
+        Y_lab: Label of the Y axis of the plot
+        plot_title: Title of the plot
+        leg: Legend of the plot
+        loca: Location of legends
+        plot_col: Color of the plotted line
+        direc: Directory in which the images should be saved
+        freq: Frequency with which the plot should update
+    """
     def __init__(self, x_ax, y_ax, X_lab, Y_lab, plot_title, leg, loca, plot_col, direc, freq):
         self.x_ax, self.y_ax, self.X_lab, self.Y_lab = x_ax, y_ax, X_lab, Y_lab
         self.plot_title, self.leg, self.loca, self.plot_col, self.direc, self.freq = plot_title, leg, loca, plot_col, direc, freq
 
 
 class PlotCostStatic(StaticPlotHelpers):
+    """
+    Plot Cost Static
+    Plots the Cost vs Number of iterations Plot
+
+    Arguments:
+        costs_tr: Array of costs of training data through the entire training duration of the network
+        costs_cv: Array of costs of cross validation data through the entire duration of the network
+        accu_tr_arr: Array containing the accuracy of the training data of the network through the entire training duration
+        accu_cv_arr: Array containing the accuracy of the cross  validation data of the network through the entire training duration
+    """
     def __init__(self, costs_tr, costs_cv, accu_tr_arr, accu_cv_arr):
         StaticPlotHelpers.__init__(self, costs_tr, costs_cv, accu_tr_arr, accu_cv_arr)
 
@@ -30,6 +66,16 @@ class PlotCostStatic(StaticPlotHelpers):
 
 
 class PlotTrCvStatic(StaticPlotHelpers):
+    """
+    Plot Train CrossVal Static
+    Plots the accuracies of train and cross val vs number of iterations
+
+    Arguments:
+        costs_tr: Array of costs of training data through the entire training duration of the network
+        costs_cv: Array of costs of cross validation data through the entire duration of the network
+        accu_tr_arr: Array containing the accuracy of the training data of the network through the entire training duration
+        accu_cv_arr: Array containing the accuracy of the cross  validation data of the network through the entire training duration
+    """
     def __init__(self, costs_tr, costs_cv, accu_tr_arr, accu_cv_arr):
         StaticPlotHelpers.__init__(self, costs_tr, costs_cv, accu_tr_arr, accu_cv_arr)
 
@@ -45,6 +91,22 @@ class PlotTrCvStatic(StaticPlotHelpers):
 
 
 class AnimatePlot(AnimatePlotHelpers):
+    """
+    Animate Plot
+    Animates the plot which has only one argument for y axis
+
+    Arguments:
+        x_ax: X axis data for plotting
+        y_ax: Y axis data for plotting
+        X_lab: Label of the X axis of the plot
+        Y_lab: Label of the Y axis of the plot
+        plot_title: Title of the plot
+        leg: Legend of the plot
+        loca: Location of legends
+        plot_col: Color of the plotted line
+        direc: Directory in which the images should be saved
+        freq: Frequency with which the plot should update
+    """
     def __init__(self, x_ax, y_ax, X_lab, Y_lab, plot_title, leg, loca, plot_col, direc, freq):
         AnimatePlotHelpers.__init__(self, x_ax, y_ax, X_lab, Y_lab, plot_title, leg, loca, plot_col, direc, freq)
 
@@ -65,6 +127,22 @@ class AnimatePlot(AnimatePlotHelpers):
 
 
 class AnimatePlotMulti(AnimatePlotHelpers):
+    """
+    Animate Plot Multi
+    Animates the plot with more than one arguments for Y axis
+
+    Arguments:
+        x_ax: X axis data for plotting
+        y_ax: Y axis data for plotting
+        X_lab: Label of the X axis of the plot
+        Y_lab: Label of the Y axis of the plot
+        plot_title: Title of the plot
+        leg: Legend of the plot
+        loca: Location of legends
+        plot_col: Color of the plotted line
+        direc: Directory in which the images should be saved
+        freq: Frequency with which the plot should update
+    """
     def __init__(self, x_ax, y_ax, X_lab, Y_lab, plot_title, leg, loca, plot_col, direc, freq):
         AnimatePlotHelpers.__init__(self, x_ax, y_ax, X_lab, Y_lab, plot_title, leg, loca, plot_col, direc, freq)
 

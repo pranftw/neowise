@@ -2,11 +2,32 @@ import numpy as np
 
 
 class OptimizerHelpers:
+    """
+    Optimizer Helpers
+    Used to initiate the instance variables of nw.optimizers
+
+    Arguments:
+        alpha: Learning rate of the network (float)
+        layers_arr: List containing the objects of nw.layers (List)
+        V_dict: Dictionary containing the moving averages of the gradient of weights of all the layers (nd-array)
+        S_dict: Dictionary containing the moving averages of the squared gradient of weights of all the layers (nd-array)
+        t: Number of iterations elapsed (int)
+    """
     def __init__(self, alpha, layers_arr, V_dict, S_dict, t):
         self.alpha, self.layers_arr, self.V_dict, self.S_dict, self.t = alpha, layers_arr, V_dict, S_dict, t
 
 
 class GradientDescent(OptimizerHelpers):
+    """
+    Gradient Descent
+
+    Arguments:
+        alpha: Learning rate of the network (float)
+        layers_arr: List containing the objects of nw.layers (List)
+        V_dict: Dictionary containing the moving averages of the gradient of weights of all the layers (nd-array)
+        S_dict: Dictionary containing the moving averages of the squared gradient of weights of all the layers (nd-array)
+        t: Number of iterations elapsed (int)
+    """
     def __init__(self, alpha, layers_arr, V_dict, S_dict, t):
         OptimizerHelpers.__init__(self, alpha, layers_arr, V_dict, S_dict, t)
 
@@ -17,6 +38,16 @@ class GradientDescent(OptimizerHelpers):
 
 
 class Momentum(OptimizerHelpers):
+    """
+    Gradient Descent with Momentum
+
+    Arguments:
+        alpha: Learning rate of the network (float)
+        layers_arr: List containing the objects of nw.layers (List)
+        V_dict: Dictionary containing the moving averages of the gradient of weights of all the layers (nd-array)
+        S_dict: Dictionary containing the moving averages of the squared gradient of weights of all the layers (nd-array)
+        t: Number of iterations elapsed (int)
+    """
     def __init__(self, alpha, layers_arr, V_dict, S_dict, t):
         OptimizerHelpers.__init__(self, alpha, layers_arr, V_dict, S_dict, t)
 
@@ -33,6 +64,16 @@ class Momentum(OptimizerHelpers):
 
 
 class RMSProp(OptimizerHelpers):
+    """
+    Root Mean Square Propagation
+
+    Arguments:
+        alpha: Learning rate of the network (float)
+        layers_arr: List containing the objects of nw.layers (List)
+        V_dict: Dictionary containing the moving averages of the gradient of weights of all the layers (nd-array)
+        S_dict: Dictionary containing the moving averages of the squared gradient of weights of all the layers (nd-array)
+        t: Number of iterations elapsed (int)
+    """
     def __init__(self, alpha, layers_arr, V_dict, S_dict, t):
         OptimizerHelpers.__init__(self, alpha, layers_arr, V_dict, S_dict, t)
 
@@ -52,6 +93,16 @@ class RMSProp(OptimizerHelpers):
 
 
 class Adam(OptimizerHelpers):
+    """
+    Adam
+
+    Arguments:
+        alpha: Learning rate of the network (float)
+        layers_arr: List containing the objects of nw.layers (List)
+        V_dict: Dictionary containing the moving averages of the gradient of weights of all the layers (nd-array)
+        S_dict: Dictionary containing the moving averages of the squared gradient of weights of all the layers (nd-array)
+        t: Number of iterations elapsed (int)
+    """
     def __init__(self, alpha, layers_arr, V_dict, S_dict, t):
         OptimizerHelpers.__init__(self, alpha, layers_arr, V_dict, S_dict, t)
 

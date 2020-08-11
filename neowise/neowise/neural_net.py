@@ -12,6 +12,18 @@ from prettytable import PrettyTable
 
 
 class Model:
+    """
+    Model
+    Puts together all the components of the network and builds a Neural Network
+
+    Arguments:
+        X_tr: Training data to train the network (nd-array)
+        y_tr: Output labels of the Training data (nd-array)
+        X_te: Testing data for the network (nd-array)
+        y_te: Output labels of the Testing data (nd-array)
+        X_cv: Cross Validation data for the network (nd-array)
+        y_cv: Output labels for the Cross Validation data (nd-array)
+    """
     def __init__(self, X_tr, y_tr, X_te, y_te, X_cv, y_cv):
         self.X_tr, self.y_tr = X_tr, y_tr
         self.X_te, self.y_te = X_te, y_te
