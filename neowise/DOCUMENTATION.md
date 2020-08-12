@@ -9,7 +9,7 @@ This is a must, any changes here would raise errors!
 
 3. Create a model by calling `model = nw.Model(your_train_data, your_train_labels, your_test_data, your_test_labels, your_crossval_data, your_crossval_labels)` If you do not have Cross Validation data, enter `None` for the last two arguments.
 
-4. Add layers to your model by `model.add(layer_name,num_inputs,num_outputs,activation_function,dropout)`, where give a unique name to each of your layers so that you know what type of layer it is. Example for `dense` layer, if it is your first layer, name it `dense1`. Enter the number of inputs to that layer, in `num_inputs` and number of units for that layer in `num_outputs`.
+4. Add layers to your model by `model.add(layer_name,num_inputs,num_outputs,activation_function,dropout)`, where you give a unique name to each of your layers so that you know what type of layer it is. Example for `dense` layer, if it is your first layer, name it `dense1`. Enter the number of inputs to that layer, in `num_inputs` and number of units for that layer in `num_outputs`.
 For activation_function use *any of the following supported activation functions* **["relu", "sigmoid", "tanh", "softmax", "sine"]**. 
 To prevent overflows and nans, we suggest that if you use a softmax classifier, to set the activation of the previous layer of the output layer as **"tanh"** as it squishes values between -1 and 1, thus preventing catastrophe. If you want to use Dropout, set the `dropout` anywhere between 0 and 1. Else, the default value is taken as 1, i.e no Dropout.
 
