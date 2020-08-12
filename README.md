@@ -1,5 +1,6 @@
 
-# neowise
+# neowise <br/>
+[![GitHub license](https://img.shields.io/github/license/pranavsastry/neowise)](https://github.com/pranavsastry/neowise/blob/master/LICENSE)
 
 ### A Deep Learning library built from scratch with Python and NumPy
 ![logo](/neowise.png)
