@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 with open("LICENSE.md", "r") as fh:
     license = fh.read()
-with open("DOCUMENTATION.md", "r") as fg:
-    long_description = fg.read()
+with open("DOCUMENTATION.md", "r") as fh:
+    long_description = fh.read()
 setup(name="neowise",
       version='0.0.5',
       description="A Deep Learning library built from scratch using Python and NumPy",
