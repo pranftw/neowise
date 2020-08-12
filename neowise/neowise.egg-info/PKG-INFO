@@ -1,39 +1,19 @@
 Metadata-Version: 2.1
 Name: neowise
-Version: 0.0.5
+Version: 0.0.6
 Summary: A Deep Learning library built from scratch using Python and NumPy
 Home-page: https://github.com/pranavsastry/neowise
 Author: Pranav Sastry
 Author-email: pranava.sri@gmail.com
 Maintainer: Pranav Sastry
-License: MIT License
-
-Copyright (c) 2020 Pranav Sastry
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+License: UNKNOWN
 Description: ﻿## *neowise* Documentation
         
         ### Steps to train your own Neural Network using *neowise*
         
-         1. Install and `import neowise as nw`
+        1. Install and `import neowise as nw`
         
-         2. Get your data and pre-process it. Your `data` should be in the dimensions as `(number_of_examples, number_of_features)` and `labels` should have `(number_of_output_units, number_of examples)` as its dimensions. 
+        2. Get your data and pre-process it. Your `data` should be in the dimensions as `(number_of_examples, number_of_features)` and `labels` should have `(number_of_output_units, number_of examples)` as its dimensions. 
         This is a must, any changes here would raise errors!
         
         3. Create a model by calling `model = nw.Model(your_train_data, your_train_labels, your_test_data, your_test_labels, your_crossval_data, your_crossval_labels)` If you do not have Cross Validation data, enter `None` for the last two arguments.
