@@ -8,7 +8,7 @@
 
 ## Working through the notebook
 1). Mount your Drive on Google Colab <br/>
-![mount](/neowise/neowise/Visuals/1.png)<br/>
+![mount](neowise/Visuals/1.png)<br/>
 
 2). Create a folder on your drive and copy the path of the folder and create several folders inside it, preferably as in the notebook. <br/>
 
