@@ -189,7 +189,7 @@ class Model:
             if self.X_cv is not None:
                 act_cv = self.forward_prop(self.X_cv)
                 cost_cv, _ = prob_type_dict[prob_type][0](self.y_cv, act_cv["A" + str(len(self.layer_names))],
-                                                          self.layer_names, lamb, reg)()
+                                                          self.layer_names, lamb, reg=None)()
                 preds_cv = prob_type_dict[prob_type][2](act_cv["A" + str(len(self.layer_names))])()
                 accu_cv = prob_type_dict[prob_type][3](self.y_cv, preds_cv)()
                 self.accu_cv_arr.append(accu_cv)

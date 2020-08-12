@@ -15,7 +15,7 @@ class CostFunctionHelpers:
         lamb: Regularization parameter "lambda" (float)
         reg: Type of Regularization (str)
     """
-    def __init__(self, y, A, layers_arr, lamb, reg=None):
+    def __init__(self, y, A, layers_arr, lamb, reg):
         self.y, self.A, self.layers_arr, self.lamb, self.reg = y, A, layers_arr, lamb, reg
 
 
@@ -35,7 +35,7 @@ class BinaryCrossEntropy(CostFunctionHelpers):
         grad: Returns the gradient of the Cost Function w.r.t its Activations (nd-array)
     """
     def __init__(self, y, A, layers_arr, lamb, reg=None):
-        CostFunctionHelpers.__init__(self, y, A, layers_arr, lamb, reg=None)
+        CostFunctionHelpers.__init__(self, y, A, layers_arr, lamb, reg)
 
     def __call__(self):
         if self.reg is not None:
@@ -70,7 +70,7 @@ class CrossEntropy(CostFunctionHelpers):
         grad: Returns the gradient of the Cost Function w.r.t its Activations (nd-array)
     """
     def __init__(self, y, A, layers_arr, lamb, reg=None):
-        CostFunctionHelpers.__init__(self, y, A, layers_arr, lamb, reg=None)
+        CostFunctionHelpers.__init__(self, y, A, layers_arr, lamb, reg)
 
     def __call__(self):
         if self.reg is not None:
