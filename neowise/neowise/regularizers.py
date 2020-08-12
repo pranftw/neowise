@@ -53,5 +53,5 @@ class L2Reg(RegularizationHelpers):
         temp_sum = 0
         for layers in self.layers_arr:
             temp_sum = temp_sum + ((self.lamb / (2 * self.m_exam)) * (np.sum(np.sum(np.square(layers.weights)))))
-            layers.grad_reg = ((self.lamb / self.m_exam) * (layers.weights))
+            layers.grad_reg = ((self.lamb / self.m_exam) * layers.weights)
         return temp_sum

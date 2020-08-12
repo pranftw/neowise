@@ -117,11 +117,10 @@ class Adam(OptimizerHelpers):
                     (1 - beta1) * self.layers_arr[h - 1].dW)
             self.V_dict["Vdb" + str(h)] = (beta1 * self.V_dict["Vdb" + str(h)]) + (
                     (1 - beta1) * self.layers_arr[h - 1].db)
-        for u in range(1, len(self.layers_arr) + 1):
-            self.S_dict["Sdw" + str(u)] = (beta2 * self.S_dict["Sdw" + str(u)]) + (
-                    (1 - beta2) * np.square(self.layers_arr[u - 1].dW))
-            self.S_dict["Sdb" + str(u)] = (beta2 * self.S_dict["Sdb" + str(u)]) + (
-                    (1 - beta2) * np.square(self.layers_arr[u - 1].db))
+            self.S_dict["Sdw" + str(h)] = (beta2 * self.S_dict["Sdw" + str(h)]) + (
+                    (1 - beta2) * np.square(self.layers_arr[h - 1].dW))
+            self.S_dict["Sdb" + str(h)] = (beta2 * self.S_dict["Sdb" + str(h)]) + (
+                    (1 - beta2) * np.square(self.layers_arr[h - 1].db))
         for n in range(1, len(self.layers_arr) + 1):
             S_dict_corr["Sdw" + str(n)] = self.S_dict["Sdw" + str(n)] / (1 - np.power(beta2, self.t))
             S_dict_corr["Sdb" + str(n)] = self.S_dict["Sdb" + str(n)] / (1 - np.power(beta2, self.t))

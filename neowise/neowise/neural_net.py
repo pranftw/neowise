@@ -148,7 +148,7 @@ class Model:
             freq = 10
         elif num_iter > 1000:
             freq = 50
-        elif (num_iter <= 100):
+        elif num_iter <= 100:
             freq = 1
         params = self.params_dict(print_params=False)
         V_dict = {}
@@ -194,7 +194,7 @@ class Model:
                 accu_cv = prob_type_dict[prob_type][3](self.y_cv, preds_cv)()
                 self.accu_cv_arr.append(accu_cv)
                 self.cost_cv_arr.append(cost_cv)
-            if ((i % 1 == 0) and print_cost == True):
+            if (i % 1 == 0) and print_cost == True:
                 if self.X_cv is None:
                     print("Iteration " + str(i) + " " + "train_cost: " + str(
                         np.round(cost_tr, 6)) + " --- " + "train_acc: " + str(np.round(accu_tr, 3)))
@@ -203,7 +203,7 @@ class Model:
                         np.round(cost_tr, 6)) + " --- " + "train_acc: " + str(
                         np.round(accu_tr, 3)) + " --- " + "val_cost: " + str(
                         np.round(cost_cv, 6)) + " --- " + "val_accu: " + str(np.round(accu_cv, 3)))
-            if (i % 1 == 0):
+            if i % 1 == 0:
                 if (callback is not None):
                     callback(i, params_plot)
 
@@ -240,21 +240,16 @@ class Model:
             dee += 1
         print("Model loaded!")
 
-    def plot(self, type_func, animate=False, direc=None):
+    def plot(self, type_func, animate=False, direc=None, freq=1):
         """
         Plot
         Plots the graphs of cost functions and accuracy on training and cross val with number of iterations on the X axis
         :param type_func: Type Function to be plotted ["Cost": Cost,"Accuracy": Accuracy] (str)
         :param animate: Boolean whether to animate the graph or not (bool)
         :param direc: Directory where the images should be stored
+        :param freq: Update frequency of plot animation
         """
         itera = np.arange(1, len(self.cost_tr_arr) + 1)
-        if (len(itera) > 100) and (len(itera) <= 1000):
-            freq = 10
-        elif len(itera) > 1000:
-            freq = 50
-        elif (len(itera) <= 100):
-            freq = 1
         plot_dict = {"Cost": [PlotCostStatic, AnimatePlotMulti, self.cost_tr_arr, self.cost_cv_arr, 'Costs',
                               'Train-Cross Val Costs Curve', 'upper right', ['c', '#9ef705'], AnimatePlot, "Costs",
                               "Cost Function Curve"],
