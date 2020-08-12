@@ -9,7 +9,8 @@
 ### pip install 
 `pip install neowise`
 
-### [Documentation](https://github.com/pranavsastry/neowise/blob/master/DOCUMENTATION.md) 
+### [Documentation](https://github.com/pranavsastry/neowise/blob/master/DOCUMENTATION.md) <br/>
+### [pypi Package Website](https://pypi.org/project/neowise/) <br/>
 
 ### Features of *neowise*
 
