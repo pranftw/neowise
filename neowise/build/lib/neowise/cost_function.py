@@ -44,12 +44,10 @@ class BinaryCrossEntropy(CostFunctionHelpers):
                 temp_sum = L1Reg(self.layers_arr, self.lamb, self.y.shape[1])()
             if self.reg == "L2":
                 temp_sum = L2Reg(self.layers_arr, self.lamb, self.y.shape[1])()
-            cost = (-1 / self.y.shape[1]) * (
-                np.sum(np.sum((self.y * np.log(self.A)) + ((1 - self.y) * (np.log(1 - self.A)))))) + temp_sum
+            cost = (((-1 / self.y.shape[1]) * (np.sum(np.sum((self.y * np.log(self.A)) + ((1 - self.y) * (np.log(1 - self.A))))))) + temp_sum)
             grad = (-1 / self.y.shape[1]) * ((self.y / self.A) - ((1 - self.y) / (1 - self.A)))
         else:
-            cost = (-1 / self.y.shape[1]) * (
-                np.sum(np.sum((self.y * np.log(self.A)) + ((1 - self.y) * (np.log(1 - self.A))))))
+            cost = (-1 / self.y.shape[1]) * (np.sum(np.sum((self.y * np.log(self.A)) + ((1 - self.y) * (np.log(1 - self.A))))))
             grad = (-1 / self.y.shape[1]) * ((self.y / self.A) - ((1 - self.y) / (1 - self.A)))
             for layers in self.layers_arr:
                 layers.grad_reg = 0
@@ -81,7 +79,7 @@ class CrossEntropy(CostFunctionHelpers):
                 temp_sum = L1Reg(self.layers_arr, self.lamb, self.y.shape[1])()
             if self.reg == "L2":
                 temp_sum = L2Reg(self.layers_arr, self.lamb, self.y.shape[1])()
-            cost = (-1 / self.y.shape[1]) * (np.sum(np.sum((self.y * np.log(self.A))))) + temp_sum
+            cost = (((-1 / self.y.shape[1]) * (np.sum(np.sum((self.y * np.log(self.A)))))) + temp_sum)
             grad = (-1 / self.y.shape[1]) * (self.y / self.A)
         else:
             cost = (-1 / self.y.shape[1]) * (np.sum(np.sum((self.y * np.log(self.A)))))
