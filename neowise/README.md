@@ -19,7 +19,7 @@
  - Test your model with `model.test`<br/>
    ![test](Visuals/test.png)
  - Plot static graphs of Cost and Accuracy using `model.plot`<br/>
-   ![costs](/Visuals/costs.png)<br/>
+   ![costs](Visuals/costs.png)<br/>
    ![accuracy](Visuals/accuracy.png)<br/>
  - Train using optimizers such as Gradient Descent, Momentum, RMSprop, Adam, Batch Gradient Descent and Stochastic Gradient Descent<br/>
  - Train using Dropout regularization for deeper networks<br/>
