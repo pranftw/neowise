@@ -1,10 +1,10 @@
-﻿## *neowise* Documentation
+## *neowise* Documentation
 
 ### Steps to train your own Neural Network using *neowise*
 
-1. Install and `import neowise as nw`
+ 1. Install and `import neowise as nw`
 
-2. Get your data and pre-process it. Your `data` should be in the dimensions as `(number_of_examples, number_of_features)` and `labels` should have `(number_of_output_units, number_of examples)` as its dimensions. 
+ 2. Get your data and pre-process it. Your `data` should be in the dimensions as `(number_of_examples, number_of_features)` and `labels` should have `(number_of_output_units, number_of examples)` as its dimensions. 
 This is a must, any changes here would raise errors!
 
 3. Create a model by calling `model = nw.Model(your_train_data, your_train_labels, your_test_data, your_test_labels, your_crossval_data, your_crossval_labels)` If you do not have Cross Validation data, enter `None` for the last two arguments.
