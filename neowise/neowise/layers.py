@@ -38,15 +38,30 @@ class Dense:
                            "sine": [Sine.forward, Sine.backward, 6]}
 
     def initialize_params(self):
+        """
+        Initialize Parameters
+        Initializes the weights and bias for the layer randomly using Xavier Initialization
+        """
         self.weights = np.random.randn(self.num_outputs, self.num_inputs) * (
             np.sqrt(self.activ_dict[self.activation_fn][2] / self.num_inputs))
         self.bias = np.random.randn(self.num_outputs, 1) * 0.01
         return self.weights, self.bias, self.grad_reg, self.grad_L1
 
     def get_params(self):
+        """
+        Get Parameters
+        Returns the weights and biases of the layer
+        """
         return self.weights, self.bias
 
     def forw_prop(self, A_prev, train=True):
+        """
+        Forward Propagation
+        Propagates the input data through the layer to produce outputs
+        :param A_prev: Activations of the previous layer
+        :param train: Boolean value, whether the network is being trained or not
+        :return: outputs and activations of the layer
+        """
         if train is False:
             self.dropout = 1
         self.outputs = np.dot(self.weights, A_prev) + self.bias
@@ -56,6 +71,13 @@ class Dense:
         return self.outputs, self.activations
 
     def back_prop(self, dA_prev, A_prev):
+        """
+        Backward Propagation
+        Calculates the gradient of the Cost Function w.r.t the weights,bias,outputs and activations
+        :param dA_prev: Gradient of the cost function w.r.t the activation of the previous layer
+        :param A_prev: Activations of the previous layer
+        :return: dZ, dW, db, dA
+        """
         self.dZ = dA_prev * self.activ_dict[self.activation_fn][1](self.outputs)
         self.dW = (np.dot(self.dZ, A_prev.T)) + self.grad_reg
         self.db = np.sum(self.dZ, axis=1, keepdims=True)

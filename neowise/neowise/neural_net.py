@@ -41,6 +41,15 @@ class Model:
         self.epochs = None
 
     def add(self, layer_name, num_inputs, num_outputs, act_fn, dropout=1):
+        """
+        Add
+        Creates a layer object and stores it in a list (self.layer_names)
+        :param layer_name: Name of the layer being added
+        :param num_inputs: Number of inputs to the layer
+        :param num_outputs: Number of units in the layer
+        :param act_fn: Activation function to be applied for the layer
+        :param dropout: Dropout value for the layer
+        """
         self.layer_names_arr.append(layer_name)
         self.arch[str(layer_name)] = [layer_name.encode('utf8'), num_inputs, num_outputs, act_fn.encode('utf8'),
                                       dropout]
@@ -49,12 +58,22 @@ class Model:
         self.layer_names.append(layer_name)
 
     def reset(self):
+        """
+        Reset
+        Resets the self.layer_names list
+        """
         self.layer_names = []
         self.arch = {}
         self.layer_names_arr = []
         return self.layer_names, self.arch, self.layer_names_arr
 
     def params_dict(self, print_params):
+        """
+        Parameters Dictionary
+        Creates a dictionary of all the parameters (weights and bias) of the network
+        :param print_params: Boolean value if True, prints the parameters
+        :return: self.params
+        """
         self.params = {}
         hee = 1
         for layer in self.layer_names:
@@ -67,6 +86,13 @@ class Model:
             return self.params
 
     def forward_prop(self, X, train_model=True):
+        """
+        Forward Propagation
+        Propagates the data through the network
+        :param X: Data to be propagated
+        :param train_model: Boolean if True, Dropout values will be unchanged, else all Dropout values = 1
+        :return: activations_cache, a list containing all the activations of all the layers of the network
+        """
         self.activations_cache = {}
         self.activations_cache = {"A0": X.T}
         temp_A = X.T
@@ -78,6 +104,17 @@ class Model:
         return self.activations_cache
 
     def backward_prop(self, y, prob_type, activations_cache, lamb, reg):
+        """
+        Backward Propagation
+        Calculates the derivative of the Cost Function w.r.t the weights, bias, activations of all the layers of
+        the network
+        :param y: Output labels of the data (nd-array)
+        :param prob_type: Type of problem ["Binary": For Binary Classification,"Multi": For Multi Class Classification]
+         (str)
+        :param activations_cache: Activations cache list put together doing nw.neural_net.forward_prop (list)
+        :param lamb: Regularization parameter "lamda" (float)
+        :param reg: Type of Regularization ["L1": For L1 regularization, "L2": For L2 Regularization] (str)
+        """
         prob_type_dict = {"Binary": [BinaryCrossEntropy, PrecisionRecall, Predict, Evaluate],
                           "Multi": [CrossEntropy, PrecisionRecallMulti, PredictMulti, EvaluateMulti]}
         _, temp_dA = prob_type_dict[prob_type][0](y, activations_cache["A" + str(len(self.layer_names))],
@@ -90,6 +127,22 @@ class Model:
 
     def fit(self, X, y, alpha, num_iter, optim, prob_type, mb, reg=None, lamb=None, alpha_decay=False, print_cost=True,
             callback=None):
+        """
+        Fit
+        Trains the model
+        :param X: Training data (nd-array)
+        :param y: Training data output labels (nd-array)
+        :param alpha: Learning Rate (float)
+        :param num_iter: Number of Iterations through the data (int)
+        :param optim: Optimizer for training ["GD":Gradient Descent,"Momentum":Momentum,"RMSprop":RMSprop,"Adam":Adam] (str)
+        :param prob_type: Type of problem ["Binary":Binary Classification,"Multi":Multi-Class Classification] (str)
+        :param mb: Mini-Batch size (int)
+        :param reg: Regularization type ["L1":L1 Regularization,"L2":L2 Regularization] (str)
+        :param lamb: Regularization parameter (float)
+        :param alpha_decay: Decrease the learning rate through the number of iterations (bool)
+        :param print_cost: Whether to print cost or not (bool)
+        :param callback: Callback for boundary visualisation for binary classification
+        """
         self.lr = alpha
         if (num_iter > 100) and (num_iter <= 1000):
             freq = 10
@@ -155,6 +208,11 @@ class Model:
                     callback(i, params_plot)
 
     def save_model(self, fname):
+        """
+        Save Model
+        Save the parameters and the architecture of the model for reuse once trained through hdfdict
+        :param fname: Directory where the model should be saved with filename with .h5 extension
+        """
         params = self.params_dict(print_params=False)
         archi = self.arch
         model_dict = {"Parameters": params, "Architecture": archi}
@@ -162,6 +220,11 @@ class Model:
         print("Model saved!")
 
     def load_model(self, fname):
+        """
+        Load Model
+        Loads the parameters and the architecture of the saved models
+        :param fname: Directory from where the model saved be opened
+        """
         print("Model loading....")
         model_dict = dict(hdfdict.load(fname))
         params_dict = model_dict["Parameters"]
@@ -178,6 +241,13 @@ class Model:
         print("Model loaded!")
 
     def plot(self, type_func, animate=False, direc=None):
+        """
+        Plot
+        Plots the graphs of cost functions and accuracy on training and cross val with number of iterations on the X axis
+        :param type_func: Type Function to be plotted ["Cost": Cost,"Accuracy": Accuracy] (str)
+        :param animate: Boolean whether to animate the graph or not (bool)
+        :param direc: Directory where the images should be stored
+        """
         itera = np.arange(1, len(self.cost_tr_arr) + 1)
         if (len(itera) > 100) and (len(itera) <= 1000):
             freq = 10
@@ -206,6 +276,10 @@ class Model:
             print("Go to your directory to find the images! Feed them to a GIF creator to animate them!")
 
     def summary(self):
+        """
+        Summary
+        Returns an ASCII Table generated by prettytable that contains the architecture of the network
+        """
         tab = PrettyTable()
         tab.field_names = ["Layer Number", "Layer Name", "Inputs", "Outputs", "Activation", "Dropout",
                            "Number of Parameters"]
@@ -221,6 +295,15 @@ class Model:
         print("Total number of trainable Parameters: " + str(total_params))
 
     def test(self, X, y, prob_type, training=False, print_values=True):
+        """
+        Test
+        Test the trained model on the test data and return the accuracy, precision, recall and F1 score on test data
+        :param X: Data (test)
+        :param y: Output labels of data (test)
+        :param prob_type: Type of problem ["Binary":Binary Classification,"Multi":Multi-Class Classification] (str)
+        :param training: Boolean if training is True or False for nw.neural_net.forward_prop (default=False)
+        :param print_values: Boolean whether to print values or not (default=True)
+        """
         prob_type_dict = {"Binary": [BinaryCrossEntropy, PrecisionRecall, Predict, Evaluate],
                           "Multi": [CrossEntropy, PrecisionRecallMulti, PredictMulti, EvaluateMulti]}
         act_te = self.forward_prop(X, training)

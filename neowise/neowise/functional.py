@@ -10,6 +10,8 @@ class Predict:
     Arguments:
         A: Activations of the output layer (nd-array)
         threshold: Value between 0 and 1, above which the prediction is 1 and below which is 0 (default=0.5) (float)
+    Returns:
+        predictions: Predictions made based on the activations of the output layer (nd-array)
     """
     def __init__(self, A, threshold=0.5):
         self.A = A
@@ -31,6 +33,8 @@ class PredictMulti:
 
     Arguments:
         A: Activations of the output layer of the network (nd-array)
+    Returns:
+        predictions: Predictions made based on the activations of the output layer (nd-array)
     """
     def __init__(self, A):
         self.A = A
@@ -56,6 +60,8 @@ class Evaluate:
     Arguments:
         y: Output labels of the train/test data (nd-array)
         preds: Predictions of the network (nd-array)
+    Returns:
+        accuracy: percentage of data correctly predicted when compared to the labels (float)
     """
     def __init__(self, y, preds):
         self.y, self.preds = y, preds
@@ -74,6 +80,8 @@ class EvaluateMulti:
     Arguments:
         y: Output labels of the train/test data (nd-array)
         preds: Predictions of the network (nd-array)
+    Returns:
+        accuracy: percentage of data correctly predicted when compared to the labels (float)
     """
     def __init__(self, y, preds):
         self.y, self.preds = y, preds
@@ -105,6 +113,8 @@ class PrecisionRecall:
     Arguments:
         A: Predictions of the network (nd-array)
         y: Labelled outputs of train/test set (nd-array)
+    Returns:
+        Precision, Recall and F1 score: All values between 0 and 1 (float)
     """
     def __init__(self, A, y):
         self.A, self.y = A, y
@@ -135,6 +145,8 @@ class PrecisionRecallMulti:
     Arguments:
         A: Predictions of the network (nd-array)
         y: Labelled outputs of train/test set (nd-array)
+    Returns:
+        Precision, Recall and F1 score: All values between 0 and 1 for all of the classes in Multi Class Classification
     """
     def __init__(self, A, y):
         self.A, self.y = A, y
@@ -201,6 +213,9 @@ class CreateMiniBatches:
         X: Training data (nd-array)
         y: Training data outputs (nd-array)
         mb_size: Number of training examples in each mini-batch (int)
+    Returns:
+        mini_batch: Dictionary containing all the mini-batches (dict)
+        num: Number of mini-batches created with the specified mb_size (int)
     """
     def __init__(self, X, y, mb_size):
         self.X, self.y, self.mb_size = X, y, mb_size

@@ -10,6 +10,8 @@ class Relu:
         backward(self): Returns the derivative of Relu w.r.t its argument
     Arguments:
         self: A NumPy nd-array
+    Returns:
+        NumPy nd-array of same shape as input
     """
     def forward(self):
         return np.maximum(0, self)
@@ -29,6 +31,8 @@ class Tanh:
         backward(self): Returns the derivative of Tanh w.r.t its argument
     Arguments:
         self: A NumPy nd-array
+    Returns:
+        NumPy nd-array of same shape as input
     """
     def forward(self):
         return np.tanh(self)
@@ -46,6 +50,8 @@ class Sigmoid:
         backward(self): Returns the derivative of Sigmoid w.r.t its argument
     Arguments:
         self: A NumPy nd-array
+    Returns:
+        NumPy nd-array of same shape as input
     """
     def forward(self):
         return (1 / (1 + np.exp(-self)))
@@ -63,6 +69,8 @@ class Softmax:
          backward(self): Returns the derivative of Softmax w.r.t its argument
     Arguments:
         self: A NumPy nd-array
+    Returns:
+        NumPy nd-array of same shape as input
     """
     def forward(self):
         soft = np.exp(self) / np.sum(np.exp(self), axis=0)
@@ -81,6 +89,8 @@ class Sine:
         backward(self): Returns the derivative of Sine w.r.t its argument
     Arguments:
         self: A NumPy nd-array
+    Returns:
+        NumPy nd-array of same shape as input
     """
     def forward(self):
         return np.sin(self)

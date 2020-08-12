@@ -30,6 +30,9 @@ class BinaryCrossEntropy(CostFunctionHelpers):
         layers_arr: A Python list containing objects of nw.layers (list)
         lamb: Regularization parameter "lambda" (float)
         reg: Type of Regularization (str)
+    Returns:
+        cost: Compares the outputs to the predicted labels and returns a floating point integer (float)
+        grad: Returns the gradient of the Cost Function w.r.t its Activations (nd-array)
     """
     def __init__(self, y, A, layers_arr, lamb, reg=None):
         CostFunctionHelpers.__init__(self, y, A, layers_arr, lamb, reg=None)
@@ -64,6 +67,9 @@ class CrossEntropy(CostFunctionHelpers):
         layers_arr: A Python list containing objects of nw.layers (list)
         lamb: Regularization parameter "lambda" (float)
         reg: Type of Regularization (str)
+    Returns:
+        cost: Compares the outputs to the predicted labels and returns a floating point integer (float)
+        grad: Returns the gradient of the Cost Function w.r.t its Activations (nd-array)
     """
     def __init__(self, y, A, layers_arr, lamb, reg=None):
         CostFunctionHelpers.__init__(self, y, A, layers_arr, lamb, reg=None)
@@ -75,7 +81,7 @@ class CrossEntropy(CostFunctionHelpers):
                 temp_sum = L1Reg(self.layers_arr, self.lamb, self.y.shape[1])()
             if self.reg is "L2":
                 temp_sum = L2Reg(self.layers_arr, self.lamb, self.y.shape[1])()
-            cost = (-1 / self.y.shape[1]) * (np.sum(np.sum((self.y * np.log(self.A)))))
+            cost = (-1 / self.y.shape[1]) * (np.sum(np.sum((self.y * np.log(self.A))))) + temp_sum
             grad = (-1 / self.y.shape[1]) * ((self.y / self.A))
         else:
             cost = (-1 / self.y.shape[1]) * (np.sum(np.sum((self.y * np.log(self.A)))))
