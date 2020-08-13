@@ -1,5 +1,6 @@
 
-# neowise
+# neowise <br/>
+[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fpranavsastry%2Fneowise)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fpranavsastry%2Fneowise)
 
 ### A Deep Learning library built from scratch with Python and NumPy
 ![logo](/neowise.png)
@@ -7,7 +8,8 @@
 ### pip install 
 `pip install neowise`
 
-### [Documentation](https://github.com/pranavsastry/neowise/blob/master/DOCUMENTATION.md) 
+### [Documentation](https://github.com/pranavsastry/neowise/blob/master/DOCUMENTATION.md) <br/>
+### [pypi Package Website](https://pypi.org/project/neowise/) <br/>
 
 ### Features of *neowise*
 
