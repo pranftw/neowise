@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("DOCUMENTATION.md", "r") as fh:
     long_description = fh.read()
 setup(name="neowise",
-      version='0.0.9',
+      version='0.1.0',
       description="A Deep Learning library built from scratch using Python and NumPy",
       author="Pranav Sastry",
       author_email="pranava.sri@gmail.com",
