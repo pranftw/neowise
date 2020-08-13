@@ -187,7 +187,7 @@ class Model:
             self.accu_tr_arr.append(accu_tr)
             self.cost_tr_arr.append(cost_tr)
             if self.X_cv is not None:
-                act_cv = self.forward_prop(self.X_cv)
+                act_cv = self.forward_prop(self.X_cv,train_model=False)
                 cost_cv, _ = prob_type_dict[prob_type][0](self.y_cv, act_cv["A" + str(len(self.layer_names))],
                                                           self.layer_names, lamb, reg=None)()
                 preds_cv = prob_type_dict[prob_type][2](act_cv["A" + str(len(self.layer_names))])()
