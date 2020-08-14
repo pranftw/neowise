@@ -97,18 +97,3 @@ class Sine:
 
     def backward(self):
         return np.cos(self)
-    
-class SoftSign:
-        """
-        Forward propagation
-        Returns
-            The output of the softplus function applied to the activation.
-        
-        Backward propagation
-        Returns
-            The derivative of SoftSign function.
-        """
-    def forward(self):
-        return self / (np.abs(self) + 1)
-    def backward(self):
-        return 1/(np.square(1 + np.abs(self)))
