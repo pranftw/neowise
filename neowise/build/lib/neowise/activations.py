@@ -111,5 +111,4 @@ class SoftSign:
     def forward(self):
         return self / (np.abs(self) + 1)
     def backward(self):
-        last_forward = np.abs(self) + 1 if self else SoftSign.forward(self)
-        return 1 / np.power(last_forward, 2)
+        return 1/(np.square(1 + np.abs(self)))
